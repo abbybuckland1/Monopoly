@@ -1,6 +1,9 @@
 package edu.towson.cis.cosc442.project1.monopoly;
 
 public class GameBoardUtility extends GameBoard {
+	/**
+	 * Initializes a GameBoardUtility instance by setting up and configuring all property, railroad, utility, and special cells on the game board.
+	 */
 	public GameBoardUtility() {
 		super();
 		PropertyCell blue1 = new PropertyCell();

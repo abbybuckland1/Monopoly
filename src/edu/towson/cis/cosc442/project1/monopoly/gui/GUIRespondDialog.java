@@ -18,6 +18,9 @@ public class GUIRespondDialog extends JDialog implements RespondDialog {
 	private boolean response;
     JTextArea txtMessage = new JTextArea();
     
+    /**
+     * Constructs a modal dialog with Yes and No buttons and a message area to capture user responses.
+     */
     public GUIRespondDialog() {
         JButton btnYes = new JButton("Yes");
         JButton btnNo = new JButton("No");
@@ -35,6 +38,10 @@ public class GUIRespondDialog extends JDialog implements RespondDialog {
         
         btnYes.addActionListener(new ActionListener(){
             @SuppressWarnings("deprecation")
+			/**
+			 * Handles the action event by setting the response to false and hiding the dialog when the No button is clicked.
+			 * @param e the action event triggered by clicking the No button
+			 */
 			public void actionPerformed(ActionEvent e) {
                 response = true;
                 hide();
@@ -43,6 +50,10 @@ public class GUIRespondDialog extends JDialog implements RespondDialog {
 
         btnNo.addActionListener(new ActionListener(){
             @SuppressWarnings("deprecation")
+			/**
+			 * Handles the action event by setting the response to false and hiding the dialog when the No button is clicked.
+			 * @param e the action event triggered by clicking the No button
+			 */
 			public void actionPerformed(ActionEvent e) {
                 response = false;
                 hide();
@@ -53,10 +64,18 @@ public class GUIRespondDialog extends JDialog implements RespondDialog {
         pack();
     }
 
+    /**
+     * Returns the boolean response indicating whether the user clicked Yes (true) or No (false).
+     * @return the user's response as a boolean value
+     */
     public boolean getResponse() {
         return response;
     }
     
+    /**
+     * Sets the dialog message text based on the supplied trade deal's message.
+     * @param deal the TradeDeal object containing the message to display
+     */
     public void setDeal(TradeDeal deal) {
         txtMessage.setText(deal.makeMessage());
     }

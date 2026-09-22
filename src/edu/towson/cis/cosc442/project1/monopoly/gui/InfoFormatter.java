@@ -14,6 +14,9 @@ public class InfoFormatter {
         }
     }
     
+    /**
+     * Initializes and populates the cellInfoFormatters map with formatters for each specific Cell subclass.
+     */
     private static void addFormatters() {
         cellInfoFormatters.put(
                 PropertyCell.class, new PropertyCellInfoFormatter());
@@ -33,6 +36,11 @@ public class InfoFormatter {
                 CardCell.class, new CCCellInfoFormatter());
     }
 
+    /**
+     * Returns a formatted string describing the given Cell using its corresponding CellInfoFormatter.
+     * @param cell the Cell instance to be formatted
+     * @return a string containing the formatted information of the provided Cell
+     */
     public static String cellInfo(Cell cell) {
         CellInfoFormatter formatter =
                 (CellInfoFormatter) cellInfoFormatters.get(cell.getClass());

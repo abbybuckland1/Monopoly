@@ -20,6 +20,10 @@ public class UtilDiceRoll extends JDialog {
 	private static final long serialVersionUID = 1L;
 
 	@SuppressWarnings("deprecation")
+	/**
+	 * Displays a modal dialog to roll dice and returns the resulting dice value.
+	 * @return the total value resulting from the dice roll.
+	 */
 	public static int showDialog() {
 		UtilDiceRoll dialog = new UtilDiceRoll();
 		dialog.show();
@@ -30,6 +34,9 @@ public class UtilDiceRoll extends JDialog {
 	private int diceValue;
 	private JLabel lblPrompt = new JLabel();
 
+	/**
+	 * Constructs a modal dialog for rolling dice to determine a utility bill.
+	 */
 	public UtilDiceRoll() {
 		setModal(true);
 		btnOK.setEnabled(false);
@@ -42,11 +49,19 @@ public class UtilDiceRoll extends JDialog {
 		contentPane.add(lblPrompt, BorderLayout.CENTER);
 		contentPane.add(pnlButtons, BorderLayout.SOUTH);
 		btnDice.addActionListener(new ActionListener(){
+			/**
+			 * Handles the action event triggered by the OK button to close the dialog.
+			 * @param arg0 the event object representing the OK action
+			 */
 			public void actionPerformed(ActionEvent arg0) {
 				rollDice();
 			}
 		});
 		btnOK.addActionListener(new ActionListener(){
+			/**
+			 * Handles the action event triggered by the OK button to close the dialog.
+			 * @param arg0 the event object representing the OK action
+			 */
 			public void actionPerformed(ActionEvent arg0) {
 				okClicked();
 			}
@@ -54,10 +69,16 @@ public class UtilDiceRoll extends JDialog {
 		this.pack();
 	}
 	
+	/**
+	 * Closes and disposes of the dice rolling dialog window.
+	 */
 	public void okClicked(){
 		this.dispose();
 	}
 	
+	/**
+	 * Rolls two dice using the GameMaster instance, updates the dialog with the roll result, and enables the OK button.
+	 */
 	public void rollDice() {
 		int[] diceRoll = GameMaster.instance().rollDice();
 		this.diceValue = diceRoll[0] + diceRoll[1];

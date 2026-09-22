@@ -22,6 +22,10 @@ public class TestDiceRollDialog extends JDialog {
     private JTextField txtDiceRoll;
     private int[] diceRoll;
     
+    /**
+     * Constructs a modal dialog attached to the specified parent frame for entering a dice roll amount.
+     * @param parent the parent frame to which this dialog is attached
+     */
     public TestDiceRollDialog(Frame parent) {
         super(parent);
         
@@ -41,6 +45,10 @@ public class TestDiceRollDialog extends JDialog {
         
         btnCancel.addActionListener(new ActionListener(){
             @SuppressWarnings("deprecation")
+			/**
+			 * Handles the OK button action by parsing the input, validating it, computing the dice roll values, and hiding the dialog.
+			 * @param e the action event triggered by pressing the OK button
+			 */
 			public void actionPerformed(ActionEvent e) {
                 TestDiceRollDialog.this.hide();
                 diceRoll = new int[2];
@@ -51,6 +59,10 @@ public class TestDiceRollDialog extends JDialog {
         
         btnOK.addActionListener(new ActionListener() {
             @SuppressWarnings("deprecation")
+			/**
+			 * Handles the OK button action by parsing the input, validating it, computing the dice roll values, and hiding the dialog.
+			 * @param e the action event triggered by pressing the OK button
+			 */
 			public void actionPerformed(ActionEvent e) {
                 int amount = 0;
                 try{
@@ -78,6 +90,10 @@ public class TestDiceRollDialog extends JDialog {
         this.pack();
     }
 
+    /**
+     * Returns the dice roll array representing the two dice values entered or computed from the dialog.
+     * @return the array of two integers representing the dice roll
+     */
     public int[] getDiceRoll() {
         return diceRoll;
     }

@@ -9,6 +9,11 @@ import edu.towson.cis.cosc442.project1.monopoly.GameBoard;
 
 public class GameBoardUtil {
     
+	/**
+	 * Calculates the dimensions of the game board sides based on the total number of cells.
+	 * @param i the total number of cells on the game board
+	 * @return a Dimension object where width is the length of the long side and height is the length of the short side of the board
+	 */
 	public static Dimension calculateDimension(int i) {
 		i = i - 4;
 		int shortSide = i / 4;
@@ -16,6 +21,11 @@ public class GameBoardUtil {
 		return new Dimension(longSide, shortSide);
 	}
 	
+	/**
+	 * Retrieves a list of cells forming the eastern side of the game board.
+	 * @param board the game board from which to retrieve east cells
+	 * @return a list of cells located on the east side of the board
+	 */
 	public static List<Cell> getEastCells(GameBoard board) {
 		Dimension d = calculateDimension(board.getCellNumber());
 		int shortSide = d.height;
@@ -26,6 +36,11 @@ public class GameBoardUtil {
 		return cells;
 	}
 	
+	/**
+	 * Retrieves a list of cells forming the northern side of the game board.
+	 * @param board the game board from which to retrieve north cells
+	 * @return a list of cells located on the north side of the board
+	 */
 	public static List<Cell> getNorthCells(GameBoard board) {
 		Dimension d = calculateDimension(board.getCellNumber());
 		int longSide = d.width;
@@ -37,6 +52,11 @@ public class GameBoardUtil {
 		return cells;
 	}
 	
+	/**
+	 * Retrieves a list of cells forming the southern side of the game board.
+	 * @param board the game board from which to retrieve south cells
+	 * @return a list of cells located on the south side of the board
+	 */
 	public static List<Cell> getSouthCells(GameBoard board) {
 		Dimension d = calculateDimension(board.getCellNumber());
 		int longSide = d.width;
@@ -47,6 +67,11 @@ public class GameBoardUtil {
 		return cells;
 	}
 	
+	/**
+	 * Retrieves a list of cells forming the western side of the game board.
+	 * @param board the game board from which to retrieve west cells
+	 * @return a list of cells located on the west side of the board
+	 */
 	public static List<Cell> getWestCells(GameBoard board) {
 		Dimension d = calculateDimension(board.getCellNumber());
 		int longSide = d.width;

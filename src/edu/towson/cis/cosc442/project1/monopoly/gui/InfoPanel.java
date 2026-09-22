@@ -7,11 +7,12 @@ import javax.swing.JPanel;
 import edu.towson.cis.cosc442.project1.monopoly.GameMaster;
 
 public class InfoPanel extends JPanel {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Updates the panel layout and displays information for each player in the game.
+	 */
 	public void displayInfo() {
 		GameMaster master = GameMaster.instance();
 		setLayout(new GridLayout(1, master.getNumberOfPlayers()));

@@ -20,6 +20,10 @@ public class GUITradeDialog extends JDialog implements TradeDialog {
     private TradeDeal deal;
     private JTextField txtAmount;
     
+    /**
+     * Constructs a trade dialog associated with the given parent frame, initializing UI components for trading properties.
+     * @param parent the parent frame to which this dialog is attached
+     */
     public GUITradeDialog(Frame parent) {
         super(parent);
         
@@ -48,12 +52,20 @@ public class GUITradeDialog extends JDialog implements TradeDialog {
         
         btnCancel.addActionListener(new ActionListener(){
             @SuppressWarnings("deprecation")
+			/**
+			 * Handles the cancel button action by hiding the dialog without making changes.
+			 * @param e the action event triggered by clicking the Cancel button
+			 */
 			public void actionPerformed(ActionEvent e) {
                 GUITradeDialog.this.hide();
             }
         });
         
         cboSellers.addItemListener(new ItemListener(){
+            /**
+             * Updates the properties combo box when the selected seller changes.
+             * @param e the item event triggered by changing the selected seller
+             */
             public void itemStateChanged(ItemEvent e) {
                 Player player = (Player)e.getItem();
                 updatePropertiesCombo(player);
@@ -62,6 +74,10 @@ public class GUITradeDialog extends JDialog implements TradeDialog {
         
         btnOK.addActionListener(new ActionListener() {
             @SuppressWarnings("deprecation")
+			/**
+			 * Handles the cancel button action by hiding the dialog without making changes.
+			 * @param e the action event triggered by clicking the Cancel button
+			 */
 			public void actionPerformed(ActionEvent e) {
                 int amount = 0;
                 try{
@@ -88,6 +104,9 @@ public class GUITradeDialog extends JDialog implements TradeDialog {
         this.pack();
     }
 
+    /**
+     * Populates the sellers combo box with players eligible to sell properties and updates the properties list for the first seller if available.
+     */
     private void buildSellersCombo() {
         List<?> sellers = GameMaster.instance().getSellerList();
         for (Iterator<?> iter = sellers.iterator(); iter.hasNext();) {
@@ -99,10 +118,18 @@ public class GUITradeDialog extends JDialog implements TradeDialog {
         }
     }
 
+    /**
+     * Returns the current trade deal created by the dialog or null if none was created.
+     * @return the trade deal established by the user
+     */
     public TradeDeal getTradeDeal() {
         return deal;
     }
 
+    /**
+     * Refreshes the properties combo box with properties owned by the specified player and enables the OK button if any properties exist.
+     * @param player the player whose properties to display
+     */
     private void updatePropertiesCombo(Player player) {
         cboProperties.removeAllItems();
         Cell[] cells = player.getAllProperties();

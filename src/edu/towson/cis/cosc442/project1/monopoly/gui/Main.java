@@ -6,6 +6,11 @@ import edu.towson.cis.cosc442.project1.monopoly.*;
 
 public class Main {
 
+	/**
+	 * Prompts the user via a dialog to enter the number of players, validating the input and storing it in GameMaster.
+	 * @param window the MainWindow used as the parent for input and message dialogs
+	 * @return the validated number of players input by the user
+	 */
 	private static int inputNumberOfPlayers(MainWindow window) {
 		int numPlayers = 0;
 		while(numPlayers <= 0 || numPlayers > GameMaster.MAX_PLAYER) {
@@ -28,6 +33,10 @@ public class Main {
 	}
 
 	@SuppressWarnings("deprecation")
+	/**
+	 * Initializes the game environment, processes command-line arguments to set test mode and game board, collects player names, and starts the game.
+	 * @param args command-line arguments to configure test mode and game board class
+	 */
 	public static void main(String[] args) {
 		GameMaster master = GameMaster.instance();
 		MainWindow window = new MainWindow();
